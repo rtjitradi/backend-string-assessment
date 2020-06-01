@@ -41,8 +41,12 @@ def verbing(s):
 def not_bad(s):
     first_not = s.find("not")
     first_bad = s.find("bad") 
+    last_var = s[-1]
     if first_not < first_bad:
-        return s
+        if last_var in [".", "!", "?"]:
+            return s[:first_not] + "good" + last_var
+        return s[:first_not] + "good"
+    return s 
 
 
 # F. front_back
