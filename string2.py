@@ -4,7 +4,7 @@ Kenzie assignment: String2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Reggy Tjitradi"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -23,9 +23,11 @@ __author__ = "???"
 
 
 def verbing(s):
-    # your code here
-    return
-
+    if ((len(s) >= 3) and (s[-3:] != "ing")):
+        return s + "ing"
+    elif ((len(s) >= 3) and (s[-3:] == "ing")):
+        return s + "ly"
+    return s
 
 # E. not_bad
 # Given a string, find the first occurrence of the substrings
@@ -37,8 +39,14 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    first_not = s.find("not")
+    first_bad = s.find("bad") 
+    last_var = s[-1]
+    if first_not < first_bad:
+        if last_var in [".", "!", "?"]:
+            return s[:first_not] + "good" + last_var
+        return s[:first_not] + "good"
+    return s 
 
 
 # F. front_back
